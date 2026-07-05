@@ -4,6 +4,11 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version of the build'
+        required: true
 
 permissions:
   contents: write
@@ -25,11 +30,11 @@ jobs:
         run: bun test
 
       - name: Run build
-        run: bun build --compile --outfile animanga-sync src/index.ts --minify
+        run: bun build --compile --outfile animanga-sync-${{ github.ref_name }} src/index.ts --minify
 
       - name: Create release
         uses: ncipollo/release-action@v1
         with:
-           artifacts: animanga-sync
+           artifacts: animanga-sync-${{ github.ref_name }}
            token: ${{ secrets.GITHUB_TOKEN }}
            generateReleaseNotes: true
