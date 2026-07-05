@@ -1,0 +1,10 @@
+node_modules/
+bun.lockb
+bun.lock
+dist/
+animanga-sync
+.env
+.env.local
+*.log
+match.json
+.claude/settings.local.json

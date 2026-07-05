@@ -1,0 +1,28 @@
+{
+  "name": "animanga-sync",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "CLI for syncing anime/manga lists across AniList, MAL, and other providers.",
+  "bin": {
+    "animanga-sync": "./src/index.ts"
+  },
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "build": "bun build --compile --outfile animanga-sync src/index.ts",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.7.0",
+    "commander": "^12.1.0",
+    "picocolors": "^1.0.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.5.0"
+  },
+  "engines": {
+    "bun": ">=1.1.0"
+  }
+}
